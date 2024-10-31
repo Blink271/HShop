@@ -1,3 +1,6 @@
+using HShop.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace HShop
 {
     public class Program
@@ -8,6 +11,10 @@ namespace HShop
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<Hshop2023Context>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("HShop"));
+            });
 
             var app = builder.Build();
 
