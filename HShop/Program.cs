@@ -1,4 +1,5 @@
 using HShop.Data;
+using HShop.Helpers;
 using Microsoft.EntityFrameworkCore;
 
 namespace HShop
@@ -15,6 +16,8 @@ namespace HShop
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("HShop"));
             });
+
+            builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
             builder.Services.AddDistributedMemoryCache();
 
